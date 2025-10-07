@@ -7,11 +7,11 @@
 
 // noinspection JSUnusedGlobalSymbols
 
-import { lazy, Suspense, type ReactNode } from "react";
+import { lazy, Suspense, type ReactNode } from 'react';
 
-export type ThemeName = "keycloakify-starter";
+export type ThemeName = 'keycloakify-starter';
 
-export const themeNames: ThemeName[] = ["keycloakify-starter"];
+export const themeNames: ThemeName[] = ['keycloakify-starter'];
 
 export type KcEnvName = never;
 
@@ -24,28 +24,28 @@ export const kcEnvDefaults: Record<KcEnvName, string> = {};
  * If you need to import the KcContext import it either from src/login/KcContext.ts or src/account/KcContext.ts.
  * Depending on the theme type you are working on.
  */
-export type KcContext = import("./login/KcContext").KcContext;
+export type KcContext = import('./login/KcContext').KcContext;
 
 declare global {
-    interface Window {
-        kcContext?: KcContext;
-    }
+  interface Window {
+    kcContext?: KcContext;
+  }
 }
 
-export const KcLoginPage = lazy(() => import("./login/KcPage"));
+export const KcLoginPage = lazy(() => import('./login/KcPage'));
 
 export function KcPage(props: { kcContext: KcContext; fallback?: ReactNode }) {
-    const { kcContext, fallback } = props;
-    return (
-        <Suspense fallback={fallback}>
-            {(() => {
-                switch (kcContext.themeType) {
-                    case "login":
-                        return <KcLoginPage kcContext={kcContext} />;
-                }
-            })()}
-        </Suspense>
-    );
+  const { kcContext, fallback } = props;
+  return (
+    <Suspense fallback={fallback}>
+      {(() => {
+        switch (kcContext.themeType) {
+          case 'login':
+            return <KcLoginPage kcContext={kcContext} />;
+        }
+      })()}
+    </Suspense>
+  );
 }
 
 // NOTE: This is exported here only because in Webpack environnement it works differently
@@ -53,4 +53,4 @@ export const BASE_URL = import.meta.env.BASE_URL;
 
 // NOTE: This is only exported here because you're supposed to import type from different packages
 // Depending of if you are using Vite, Webpack, ect...
-export type { Meta, StoryObj } from "@storybook/react-vite";
+export type { Meta, StoryObj } from '@storybook/react-vite';
