@@ -28,7 +28,7 @@ export default function KcPage(props: { kcContext: KcContext }) {
 				styles={{
 					'.kcFormHeaderClass': { display: 'none !important' },
 					'.kcHeaderClass': { display: 'none !important' },
-					'input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, input:-internal-autofill-selected': {
+					'input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, input:-internal-autofill-selected, input:invalid:-webkit-autofill': {
 						WebkitBoxShadow: '0 0 0 1000px transparent inset !important',
 						WebkitTextFillColor: 'white !important',
 						transition: 'background-color 5000s ease-in-out 0s !important',
@@ -36,7 +36,6 @@ export default function KcPage(props: { kcContext: KcContext }) {
 					},
 				}}
 			/>
-
 
       <Suspense>
         {(() => {
