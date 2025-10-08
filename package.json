@@ -24,7 +24,8 @@
     "@mui/material": "^7.3.4",
     "keycloakify": "^11.9.3",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-icons": "^5.5.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.15.0",
