@@ -18,7 +18,7 @@ export default function Login(props: PageProps<Extract<KcContext, { pageId: 'log
     login,
     auth,
     registrationDisabled,
-    messagesPerField
+    messagesPerField,
   } = kcContext;
 
   return (
@@ -34,12 +34,7 @@ export default function Login(props: PageProps<Extract<KcContext, { pageId: 'log
       infoNode={null}
       documentTitle={'maxstash'}
     >
-      <Box
-        display="flex"
-        justifyContent="center"
-				mt={8}
-        p={2}
-      >
+      <Box display="flex" justifyContent="center" mt={8} p={2}>
         <Card
           sx={{
             width: '100%',

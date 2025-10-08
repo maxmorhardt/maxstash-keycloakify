@@ -7,10 +7,10 @@ export default defineConfig({
     react(),
     keycloakify({
       accountThemeImplementation: 'none',
-			keycloakVersionTargets: {
-				"22-to-25": false,
-				"all-other-versions": "maxstash-keycloakify.jar"
-			}
+      keycloakVersionTargets: {
+        '22-to-25': false,
+        'all-other-versions': 'maxstash-keycloakify.jar',
+      },
     }),
   ],
 });

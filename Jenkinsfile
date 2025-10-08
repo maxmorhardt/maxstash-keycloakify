@@ -46,7 +46,7 @@ pipeline {
 
 						ls -lah
 
-						unzip maxstash-keycloakify.zip
+						unzip maxstash-keycloakify.jar
 
 						ls -lah
 					"""
