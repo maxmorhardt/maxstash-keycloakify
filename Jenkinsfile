@@ -41,6 +41,8 @@ pipeline {
 					sh 'npm install'
 					sh 'npm run build-keycloak-theme'
 
+					sh 'cd dist_keycloak && unzip keycloak-theme-for-kc-all-other-versions.zip'
+
 					sh 'ls -lah'
 					sh 'ls ./dist_keycloak -lah'
 				}
