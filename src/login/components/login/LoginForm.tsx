@@ -47,6 +47,11 @@ export default function LoginForm({
                 name="username"
                 autoFocus
                 autoComplete="username"
+                slotProps={{
+                  input: {
+                    spellCheck: 'false',
+                  },
+                }}
                 label={
                   !realm.loginWithEmailAllowed
                     ? msg('username')
@@ -77,6 +82,11 @@ export default function LoginForm({
                 name="password"
                 type="password"
                 autoComplete="current-password"
+                slotProps={{
+                  input: {
+                    spellCheck: 'false',
+                  },
+                }}
                 label={msg('password')}
                 error={messagesPerField.existsError('username', 'password')}
                 helperText={
