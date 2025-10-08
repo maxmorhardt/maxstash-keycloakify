@@ -1,7 +1,6 @@
 import { Box, Button, Divider, Stack } from '@mui/material';
 import { kcSanitize } from 'keycloakify/lib/kcSanitize';
 import { KcContext } from 'keycloakify/login/KcContext';
-import { clsx } from 'keycloakify/tools/clsx';
 import { FaFacebook, FaGithub, FaGoogle, FaMicrosoft, FaTwitter } from 'react-icons/fa';
 
 interface SocialProvidersProps {
@@ -37,7 +36,13 @@ export default function SocialProviders({ realm, social }: SocialProvidersProps)
             variant="outlined"
             href={p.loginUrl}
   					startIcon={providerIcons[p.alias.toLowerCase()] ?? undefined}
-            sx={{ textTransform: 'none', width: '100%' }}
+						sx={{
+							textTransform: 'none',
+							width: '100%',
+							'& .MuiButton-startIcon': {
+								mr: 0.5,
+							},
+						}}
           >
             <span
               dangerouslySetInnerHTML={{ __html: kcSanitize(p.displayName) }}
