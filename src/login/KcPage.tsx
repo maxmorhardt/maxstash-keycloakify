@@ -28,12 +28,22 @@ export default function KcPage(props: { kcContext: KcContext }) {
 				styles={{
 					'.kcFormHeaderClass': { display: 'none !important' },
 					'.kcHeaderClass': { display: 'none !important' },
-					'input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, input:-internal-autofill-selected, input:invalid:-webkit-autofill': {
+					'input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, input:-internal-autofill-selected': {
+						appearance: 'none !important',
+						background: 'transparent !important',
+						backgroundColor: 'transparent !important',
+						color: 'inherit !important',
+						WebkitTextFillColor: 'inherit !important',
 						WebkitBoxShadow: '0 0 0 1000px transparent inset !important',
-						WebkitTextFillColor: 'white !important',
 						transition: 'background-color 5000s ease-in-out 0s !important',
-						caretColor: 'white !important',
+						caretColor: 'inherit !important',
 					},
+					'input:-webkit-autofill::first-line': {
+						color: 'inherit !important',
+						fontFamily: 'inherit !important',
+						fontSize: 'inherit !important',
+					},
+
 				}}
 			/>
 
