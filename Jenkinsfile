@@ -38,13 +38,18 @@ pipeline {
 		stage('Node CI') {
 			steps {
 				script {
-					sh 'npm install'
-					sh 'npm run build-keycloak-theme'
+					sh """
+						npm install
+						npm run build-keycloak-theme
 
-					sh 'cd dist_keycloak && unzip keycloak-theme-for-kc-all-other-versions.zip'
+						cd ./dist_keycloak
 
-					sh 'ls -lah'
-					sh 'ls ./dist_keycloak -lah'
+						ls -lah
+
+						unzip maxstash-keycloakify.zip
+
+						ls -lah
+					"""
 				}
 			}
 		}
