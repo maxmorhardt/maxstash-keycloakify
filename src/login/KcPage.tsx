@@ -6,9 +6,9 @@ import DefaultPage from 'keycloakify/login/DefaultPage';
 import Template from 'keycloakify/login/Template';
 import { createTheme, CssBaseline, GlobalStyles, ThemeProvider } from '@mui/material';
 
-const UserProfileFormFields = lazy(() => import('keycloakify/login/UserProfileFormFields'));
 const Login = lazy(() => import('./pages/Login'));
 const Register = lazy(() => import('./pages/Register'));
+const UserProfileFormFields = lazy(() => import('./components/register/UserProfileFormFields'));
 
 const doMakeUserConfirmPassword = true;
 
@@ -57,7 +57,7 @@ export default function KcPage(props: { kcContext: KcContext }) {
                 <Register
                   {...{ kcContext, i18n, classes }}
                   Template={Template}
-                  doUseDefaultCss={true}
+                  doUseDefaultCss={false}
                   UserProfileFormFields={UserProfileFormFields}
                   doMakeUserConfirmPassword={doMakeUserConfirmPassword}
                 />
