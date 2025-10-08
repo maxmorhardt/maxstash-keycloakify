@@ -24,17 +24,18 @@ export default function KcPage(props: { kcContext: KcContext }) {
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
-      <GlobalStyles
-        styles={{
-          '.kcFormHeaderClass': { display: 'none !important' },
-          '.kcHeaderClass': { display: 'none !important' },
-					 'input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus': {
-							WebkitBoxShadow: '0 0 0 1000px transparent inset !important',
-							WebkitTextFillColor: 'inherit !important',
-							transition: 'background-color 5000s ease-in-out 0s !important',
-					 }
-        }}
-      />
+			<GlobalStyles
+				styles={{
+					'.kcFormHeaderClass': { display: 'none !important' },
+					'.kcHeaderClass': { display: 'none !important' },
+					'input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus': {
+						WebkitBoxShadow: '0 0 0 1000px transparent inset !important',
+						WebkitTextFillColor: 'white !important',
+						transition: 'background-color 5000s ease-in-out 0s !important',
+						caretColor: 'white !important',
+					},
+				}}
+			/>
 
       <Suspense>
         {(() => {

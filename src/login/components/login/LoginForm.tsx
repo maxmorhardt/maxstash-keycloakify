@@ -1,9 +1,9 @@
-import { Box, TextField, FormControlLabel, Checkbox, Link, Button } from '@mui/material';
+import { Box, Button, Checkbox, FormControlLabel, Link, TextField } from '@mui/material';
 import { kcSanitize } from 'keycloakify/lib/kcSanitize';
 import { I18n } from 'keycloakify/login/i18n';
+import { KcContext } from 'keycloakify/login/KcContext';
 import { useState } from 'react';
 import PasswordWrapper from './PasswordWrapper';
-import { KcContext } from 'keycloakify/login/KcContext';
 
 interface LoginFormProps {
   i18n: I18n;
