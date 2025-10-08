@@ -1,5 +1,5 @@
-import { Box, Typography } from "@mui/material";
-import { I18n } from "keycloakify/login/i18n";
+import { Box, Typography } from '@mui/material';
+import { I18n } from 'keycloakify/login/i18n';
 
 interface LoginTitleProps {
   i18n: I18n;
@@ -10,8 +10,8 @@ export default function LoginTitle({ i18n }: LoginTitleProps) {
 
   return (
     <>
-			<Box display={'flex'} justifyContent={'center'}>
-				<Box
+      <Box display={'flex'} justifyContent={'center'}>
+        <Box
           component="img"
           src="maxstash.png"
           alt="maxstash"
@@ -19,13 +19,13 @@ export default function LoginTitle({ i18n }: LoginTitleProps) {
             width: 40,
             height: 40,
             borderRadius: 1,
-            objectFit: "contain",
+            objectFit: 'contain',
           }}
         />
-			</Box>
+      </Box>
 
       <Typography variant="h5" textAlign="center" mb={3} mt={2}>
-        {msg("loginAccountTitle")}
+        {msg('loginAccountTitle')}
       </Typography>
     </>
   );

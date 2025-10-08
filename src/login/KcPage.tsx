@@ -8,6 +8,7 @@ import { createTheme, CssBaseline, GlobalStyles, ThemeProvider } from '@mui/mate
 
 const UserProfileFormFields = lazy(() => import('keycloakify/login/UserProfileFormFields'));
 const Login = lazy(() => import('./pages/Login'));
+const Register = lazy(() => import('./pages/Register'));
 
 const doMakeUserConfirmPassword = true;
 
@@ -24,28 +25,27 @@ export default function KcPage(props: { kcContext: KcContext }) {
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
-			<GlobalStyles
-				styles={{
-					'.kcFormHeaderClass': { display: 'none !important' },
-					'.kcHeaderClass': { display: 'none !important' },
-					'input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, input:-internal-autofill-selected': {
-						appearance: 'none !important',
-						background: 'transparent !important',
-						backgroundColor: 'transparent !important',
-						color: 'inherit !important',
-						WebkitTextFillColor: 'inherit !important',
-						WebkitBoxShadow: '0 0 0 1000px transparent inset !important',
-						transition: 'background-color 5000s ease-in-out 0s !important',
-						caretColor: 'inherit !important',
-					},
-					'input:-webkit-autofill::first-line': {
-						color: 'inherit !important',
-						fontFamily: 'inherit !important',
-						fontSize: 'inherit !important',
-					},
+      <GlobalStyles
+        styles={{
+          '.kcFormHeaderClass': { display: 'none !important' },
+          '.kcHeaderClass': { display: 'none !important' },
 
-				}}
-			/>
+          'input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, textarea:-webkit-autofill, textarea:-webkit-autofill:hover, textarea:-webkit-autofill:focus, select:-webkit-autofill, select:-webkit-autofill:hover, select:-webkit-autofill:focus':
+            {
+              WebkitBoxShadow: '0 0 0 1000px transparent inset !important',
+              WebkitTextFillColor: `${darkTheme.palette.text.primary} !important`,
+              transition: 'background-color 9999s ease-in-out 0s !important',
+              caretColor: `${darkTheme.palette.text.primary} !important`,
+              borderColor: 'transparent !important',
+              outline: 'none !important',
+            },
+
+          'input:invalid, input:-webkit-autofill:invalid': {
+            boxShadow: 'none !important',
+            borderBottom: 'none !important',
+          },
+        }}
+      />
 
       <Suspense>
         {(() => {
@@ -56,6 +56,16 @@ export default function KcPage(props: { kcContext: KcContext }) {
                   {...{ kcContext, i18n, classes }}
                   Template={Template}
                   doUseDefaultCss={false}
+                />
+              );
+            case 'register.ftl':
+              return (
+                <Register
+                  {...{ kcContext, i18n, classes }}
+                  Template={Template}
+                  doUseDefaultCss={true}
+                  UserProfileFormFields={UserProfileFormFields}
+                  doMakeUserConfirmPassword={doMakeUserConfirmPassword}
                 />
               );
             default:
