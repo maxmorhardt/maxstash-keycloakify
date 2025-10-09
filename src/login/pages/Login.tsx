@@ -1,8 +1,8 @@
-import { Box, Card, CardContent } from '@mui/material';
 import type { PageProps } from 'keycloakify/login/pages/PageProps';
 import type { KcContext } from '../KcContext';
+import AuthHeader from '../components/common/AuthHeader';
+import AuthWrapper from '../components/common/AuthWrapper';
 import LoginForm from '../components/login/LoginForm';
-import LoginTitle from '../components/login/LoginTitle';
 import RegisterInfo from '../components/login/RegisterInfo';
 import SocialProviders from '../components/login/SocialProviders';
 import type { I18n } from '../i18n';
@@ -34,42 +34,32 @@ export default function Login(props: PageProps<Extract<KcContext, { pageId: 'log
       infoNode={null}
       documentTitle={'maxstash'}
     >
-      <Box display="flex" justifyContent="center" mt={8} p={2}>
-        <Card
-          sx={{
-            width: '100%',
-            maxWidth: { xs: 320, sm: 400 },
-            boxShadow: 6,
-          }}
-        >
-          <CardContent sx={{ p: { xs: 2, sm: 3 } }}>
-            {/* login title */}
-            <LoginTitle i18n={i18n} />
+      <AuthWrapper>
+        {/* login title */}
+        <AuthHeader i18n={i18n} isLogin={true} />
 
-            {/* login form */}
-            <LoginForm
-              i18n={i18n}
-              realm={realm}
-              url={url}
-              login={login}
-              messagesPerField={messagesPerField}
-              auth={auth}
-              usernameHidden={usernameHidden}
-            />
+        {/* login form */}
+        <LoginForm
+          i18n={i18n}
+          realm={realm}
+          url={url}
+          login={login}
+          messagesPerField={messagesPerField}
+          auth={auth}
+          usernameHidden={usernameHidden}
+        />
 
-            {/* social providers */}
-            <SocialProviders realm={realm} social={social} />
+        {/* social providers */}
+        <SocialProviders realm={realm} social={social} />
 
-            {/* register info */}
-            <RegisterInfo
-              i18n={i18n}
-              url={url}
-              realm={realm}
-              registrationDisabled={registrationDisabled}
-            />
-          </CardContent>
-        </Card>
-      </Box>
+        {/* register info */}
+        <RegisterInfo
+          i18n={i18n}
+          url={url}
+          realm={realm}
+          registrationDisabled={registrationDisabled}
+        />
+      </AuthWrapper>
     </Template>
   );
 }

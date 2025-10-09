@@ -3,9 +3,10 @@ import { I18n } from 'keycloakify/login/i18n';
 
 interface LoginTitleProps {
   i18n: I18n;
+  isLogin: boolean;
 }
 
-export default function LoginTitle({ i18n }: LoginTitleProps) {
+export default function AuthHeader({ i18n, isLogin }: LoginTitleProps) {
   const { msg } = i18n;
 
   return (
@@ -25,7 +26,7 @@ export default function LoginTitle({ i18n }: LoginTitleProps) {
       </Box>
 
       <Typography variant="h5" textAlign="center" mb={3} mt={2}>
-        {msg('loginAccountTitle')}
+        {isLogin ? msg('loginAccountTitle') : 'Sign up'}
       </Typography>
     </>
   );
